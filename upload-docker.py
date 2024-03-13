@@ -1,5 +1,5 @@
 import subprocess
-docker_v = 1.0
+docker_v = 1.1
 
 commands = [f'sudo docker build . -t solderingiron86/siege-docker:{docker_v}',
             f'sudo docker push solderingiron86/siege-docker:{docker_v}']
