@@ -1,8 +1,8 @@
 import subprocess
-docker_v = 1.1
+docker_v = "shutdown"
 
-commands = [f'sudo docker build . -t solderingiron86/siege-docker:{docker_v}',
-            f'sudo docker push solderingiron86/siege-docker:{docker_v}']
+commands = [f'sudo docker build . -t solderingiron86/better-sentral:{docker_v}',
+            f'sudo docker push solderingiron86/better-sentral:{docker_v}']
 
 
 for command in commands:

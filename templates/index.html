@@ -3,24 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>System Error</title>
+  <title>Class Forge</title>
   <link href="./static/css/output.css" rel="stylesheet">
 </head>
 
 <body class="min-h-screen flex justify-center items-center">
     <div>
-      <div class="m-10 border-2 border-blue-600 text-center px-8 py-12 rounded-lg shadow-lg max-w-md">
-      <h1 class="text-blue-600 text-4xl font-bold mb-8">Well this was unexpected!</h1>
-      <p class="text-gray-700 text-xl">Seems like there's a little bug somewhere in my website...</p>
-      <p class="text-gray-700 mt-4 text-l">But hey, this is my website, so I can to take it down to fix it...</p>
-      <p class="text-gray-700 mt-4 text-sm">Hopefully the site should be back up soon, sorry for any inconvenience.<p>
-      </div>
+      <div class="m-10 border-2 border-blue-600 text-center px-8 py-12 rounded-lg shadow-lg max-w">
+      <h1 class="text-blue-600 text-4xl font-bold mb-8">Class Forge Has Been Shut Down</h1>
+      <p class="text-gray-700 text-l">Unfortunetly, I have had to shut down Class Forge, because it simply wasn't worth maintaining anymore.</p>
+      <p class="text-gray-700 mt-4 text-l">When I was still activly maintaining it, it was a huge job, and if it was still done and working, then I would keep it up. But due to the threat that Sentral can update their code at any time, I have decided to take it down.</p>
+      <p class="text-gray-700 mt-4 text-l">Thank you for using my site, and if you are interested in still getting data from Sentral, check out <a href="https://github.com/mario872/sentralify" class="text-blue-600">Sentralify</a>, which I do intend to keep maintaining.<p>
+      <p class="text-gray-700 mt-4 text-l">However, if you want to self-host Class Forge in it's current state, then you can run it using docker.</p>
+      <code>
+          docker run -d --restart always --name class-forge -p 5000:5000 solderingiron86/better-sentral:latest
+      </code>
+      <p class="text-gray-700 mt-4 text-l">If you don't want to use docker, you can clone the repository using git.</p>
+      <code>
+        git clone https://github.com/mario872/class-forge && cd class-forge && python3 -m pip install -r requirements.txt && python3 main.py
+      </code>
 
-      <div class="m-10 mb-2 flex border-2 border-blue-600 text-center p-2 rounded-lg shadow-lg max-w-md">
-      <img src="./static/on-it.gif">
-      </div>
-      <div>
-        <p class="text-s justify-center text-center">Image courtesy of <a class="text-blue-600" href="https://tenor.com/en-GB/view/im-on-it-gif-18392687">tenor</a></p>
+      <p class="text-gray-700 mt-4 text-l"><b>New!</b> If you are self hosting, you can now disable security so that you don't have to login. (If it's a bit slow at the start that's because it's getting your timetable without you having to click to get it.)</p>
+      <code>
+        docker run --name class-forge -p 5000:5000 -e DISABLE_SECURITY=true -e CF_USERNAME="username" -e CF_PASSWORD="password" -e CF_STATE="nsw" -e CF_BASE_URL="caringbahhs" solderingiron86/better-sentral:latest
+      </code>
+      <p class="text-gray-700 mt-4 text-l"><b>BUT BE CAREFUL:</b> by default Docker will probably try and serve class forge outside of your computer, exposing it on your local network!</p>
+      <p class="text-gray-700 mt-4 text-l">Make sure to configure your firewall to deny requests from outside devices to port 5000, or everyone will be able to view class forge running on your computer.</p>
+      <p class="text-gray-700 mt-4 text-l">I've found that Docker was sneaky for me, and editing my firewall itself to allow it, which I had to disable by adding <code>{"iptables": false}</code> to <code>/etc/docker/daemon.json</code></p>
+      <p class="text-gray-700 mt-4 text-l">Also, you can now go to <code>http://127.0.0.1:5000/get_data</code> to get the data that Sentralify returns yourself.</p>
       </div>
     </div>
 
